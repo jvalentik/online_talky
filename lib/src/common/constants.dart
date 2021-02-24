@@ -4,3 +4,6 @@ const kTwitterIcon = 'images/twitter_icon.png';
 const kLinkedinIcon = 'images/linkedin_icon.png';
 const kProfilePicUrl =
     'https://lh3.googleusercontent.com/a-/AOh14GjZZybKfuac8Es1eRfMmCfTDkYKIriGiSPPXDjwTQ=s96-c';
+const kPhoneNumber = '+421 904 098 789';
+const kLinkedInProfile = 'https://www.linkedin.com/in/janvalentik';
+const kTwitterProfile = 'https://twitter.com/JohnyValentik';

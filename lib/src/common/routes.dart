@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_talky/src/model/user.dart';
 import 'package:online_talky/src/pages/home_page.dart';
 import 'package:online_talky/src/pages/login_page.dart';
 import 'package:online_talky/src/pages/splash_page.dart';
@@ -13,7 +14,13 @@ class AppRouter {
         return _getPageRoute(settings: settings, viewToShow: LoginPage(), fullScreen: true);
         break;
       case HomePage.routeName:
-        return _getPageRoute(settings: settings, viewToShow: HomePage());
+        final User user = settings.arguments as User;
+        return _getPageRoute(
+          settings: settings,
+          viewToShow: HomePage(
+            currentUser: user,
+          ),
+        );
         break;
       case SplashPage.routeName:
         return _getPageRoute(settings: settings, viewToShow: SplashPage(), fullScreen: true);

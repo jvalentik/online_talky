@@ -7,9 +7,10 @@ class ThemeProvider {
   static ThemeData getLightTheme(BuildContext context) {
     return ThemeData(
       primarySwatch: Colors.deepPurple,
+      accentColor: Colors.teal,
       brightness: Brightness.light,
       visualDensity: VisualDensity.adaptivePlatformDensity,
-      textTheme: GoogleFonts.latoTextTheme(
+      textTheme: GoogleFonts.sourceSansProTextTheme(
         Theme.of(context).textTheme,
       ),
     );
@@ -18,9 +19,10 @@ class ThemeProvider {
   static ThemeData getDarkTheme(BuildContext context) {
     return ThemeData(
       primarySwatch: Colors.deepPurple,
+      accentColor: Colors.teal,
       brightness: Brightness.dark,
       visualDensity: VisualDensity.adaptivePlatformDensity,
-      textTheme: GoogleFonts.latoTextTheme(
+      textTheme: GoogleFonts.sourceSansProTextTheme(
         Theme.of(context).textTheme,
       ),
     );

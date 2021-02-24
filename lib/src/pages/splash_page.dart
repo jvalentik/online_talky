@@ -1,7 +1,6 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:online_talky/src/common/constants.dart';
+import 'package:online_talky/src/common/utils.dart';
 import 'package:online_talky/src/pages/login_page.dart';
 import 'package:online_talky/src/widgets/loader.dart';
 
@@ -42,12 +41,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    checkIfLoggedIn();
-  }
-
-  Future<void> checkIfLoggedIn() async {
-    var duration = new Duration(seconds: 5);
-    return Timer(duration, _navigateToLogin);
+    simulateLoginCheck(_navigateToLogin);
   }
 
   void _navigateToLogin() {
