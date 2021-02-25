@@ -12,7 +12,7 @@ class App extends StatelessWidget {
       theme: ThemeProvider.getLightTheme(context),
       darkTheme: ThemeProvider.getDarkTheme(context),
       themeMode: ThemeMode.system,
-      home: SplashPage(),
+      home: const SplashPage(),
     );
   }
 }

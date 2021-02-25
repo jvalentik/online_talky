@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:online_talky/src/model/user.dart';
-import 'package:online_talky/src/pages/splash_page.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:online_talky/src/widgets/app_drawer.dart';
 
 class HomePage extends StatefulWidget {
   final User currentUser;
@@ -25,67 +24,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('Home'),
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            UserAccountsDrawerHeader(
-              accountName: Text(widget.currentUser.userName),
-              accountEmail: Text(widget.currentUser.email),
-              currentAccountPicture: CircleAvatar(
-                backgroundImage: NetworkImage(
-                  widget.currentUser.avatarUrl,
-                ),
-              ),
-            ),
-            ListTile(
-              leading: Icon(Icons.email),
-              title: Text('Send me an email'),
-              onTap: () async {
-                final Uri _emailLaunchUri = Uri(
-                  scheme: 'mailto',
-                  path: widget.currentUser.email,
-                  queryParameters: {'subject': 'Flutter is awesome!'},
-                );
-                await launch(_emailLaunchUri.toString());
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.phone_outlined),
-              title: Text('Call me'),
-              onTap: () async {
-                await launch('tel:${widget.currentUser.phoneNumber}');
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.contact_page_outlined),
-              title: Text('Check my Twitter'),
-              onTap: () async {
-                await launch(widget.currentUser.twitterProfile);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.favorite_border),
-              title: Text('Check my LinkedIn'),
-              onTap: () async {
-                await launch(widget.currentUser.linkedInProfile);
-                Navigator.pop(context);
-              },
-            ),
-            Divider(),
-            ListTile(
-              leading: Icon(Icons.logout),
-              title: Text('Sign out'),
-              onTap: () {
-                Navigator.pushReplacementNamed(context, SplashPage.routeName);
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: AppDrawer(currentUser: widget.currentUser),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,

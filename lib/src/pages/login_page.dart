@@ -67,8 +67,9 @@ class _LoginPageState extends State<LoginPage> {
                     },
                   ),
                   if (isLoading) const Loader(),
-                  ElevatedButton(
-                    child: Text('Sign In'),
+                  ElevatedButton.icon(
+                    label: Text('Sign In'),
+                    icon: Icon(Icons.login),
                     onPressed: isLoading
                         ? null
                         : () async {
